@@ -1,0 +1,105 @@
+/* MD3 基础样式设定 */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #141218;
+    /* Surface */
+    color: #E6E0E9;
+    /* On Surface */
+}
+
+/* 隐藏滚动条但保留功能 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #141218;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #49454F;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #CAC4D0;
+}
+
+/* MD3 进度指示器 (Loader) */
+.md3-circular-progress {
+    width: 48px;
+    height: 48px;
+    animation: rotate 2s linear infinite;
+}
+
+.md3-circular-progress circle {
+    stroke: #D0BCFF;
+    /* Primary */
+    stroke-width: 4px;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    fill: none;
+    animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+/* Drag-and-drop 视觉反馈 */
+.drag-over {
+    border-color: #D0BCFF !important;
+    /* Primary */
+    background-color: rgba(208, 188, 255, 0.08) !important;
+    /* Primary with low opacity */
+}
+
+/* Material Ripple 效果 (简化版) */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s;
+}
+
+.ripple:active::after {
+    transform: scale(0, 0);
+    opacity: 0.2;
+    transition: 0s;
+}
