@@ -12,7 +12,7 @@
 
 ### 在线使用
 
-直接访问 GitHub Pages 部署地址即可使用，无需安装。
+直接访问 [GitHub Pages](https://img.shields.io/badge/WebAssembly-654FF0?style=for-the-badge&logo=webassembly&logoColor=white) 即可使用，无需安装。
 
 ### 本地运行
 
